@@ -1,17 +1,21 @@
 import React from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 
-export const Routesreact = () => {
-  return (
-    <div className='p-4'>
-        <Routes>
-          <Route exact path="/">
-            <Navigate to="/search" />
-          </Route>
-          <Route exact path={['/search', '/images', '/news', '/videos']}>
+import Results from './results';
 
-          </Route>
-        </Routes>
-    </div>
-  )
-}
+const Routesreact = () => {
+  return (
+  <div className='p-4'>
+    
+    <Routes>
+      <Route path='/' element={<Navigate from='/' to='/search' />}/>
+      <Route path='/search' element={<Results />}/>
+      <Route path='/images' element={<Results />}/>
+      <Route path='/news' element={<Results />}/>
+      <Route path='/videos' element={<Results />}/>
+    </Routes>
+  </div>
+  );
+};
+
+export default Routesreact
