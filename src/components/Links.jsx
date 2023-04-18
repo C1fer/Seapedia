@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+
+
 const links = [
   { url: '/search', text: '🔎 Páginas' },
   { url: '/news', text: '📰 Noticias' },
@@ -9,9 +11,10 @@ const links = [
 ];
 
 export const Links = () => (
-  <div className="flex sm:justify-around justify-between items-center mt-4 mb-2.5 space-x-2">
+  <div className="flex sm:justify-around justify-between items-center sm:ml-50 md:ml-56 mt-0 mb-2.5 space-x-3">
     {links.map(({ url, text }) => (
-      <NavLink to={url} activeClassName="text-blue-700 border-b-2 dark:text-blue-300 border-blue-700">{text}</NavLink>
+      <NavLink to={url} className={({ isActive }) =>
+      isActive ? 'text-blue-700 border-b-2 dark:text-blue-300 border-blue-700 pb-2' : ''}>{text}</NavLink>
     ))}
   </div>
 );

@@ -6,7 +6,7 @@ export const Search = () => {
   const [text, setText] = useState('Gatos');
 
   return (
-    <div className="relative sm:ml-48 md:ml-72 sm:-mt-10 mt-3">
+    <div className="relative flex-1 sm:ml-48 md:ml-72 sm:-mt-10 mt-3">
       <input
         id="txtSearch"
         value={text}
