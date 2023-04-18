@@ -1,7 +1,6 @@
-import React, {useEffect, useRef } from 'react';
+import React, {useEffect} from 'react';
 import { useLocation } from 'react-router-dom';
 import ReactPlayer from 'react-player';
-
 import { useResultContext } from '../context/ResultContextProvider';
 import { Loading } from './loading';
 
@@ -10,23 +9,20 @@ export const Results = () => {
   const location = useLocation();
   const apikey = '643e219ffa3387e9f86288bf&q';
 
-
   useEffect(() => {
 
     if (searchTerm !== '') {
-        getResults(`${location.pathname}?api_key=${apikey}=${searchTerm}`);
-      }
-    
+      getResults(`${location.pathname}?api_key=${apikey}=${searchTerm}`);
+    }
     
   }, [searchTerm, location.pathname]);
-
 
   if(isLoading) return <Loading />;
 
   switch (location.pathname) {
     case '/search':
       return (
-        <div className='flex flex-wrap justify between space-y-6 sm:px-56'>
+        <div className='flex flex-wrap justify between space-y-4 sm:px-56'>
           {results?.organic_results?.map(({ link, title, snippets }, index)=>(
             <div key={index} className='md:2/5 w-full'>
               <a href={link} target="_blank" rel="noreferrer">
