@@ -7,12 +7,12 @@ import { Loading } from './loading';
 export const Results = () => {
   const { results, isLoading, getResults, searchTerm } = useResultContext();
   const location = useLocation();
-  const apikey = '643e219ffa3387e9f86288bf&q';
+  const apikey = '643ec04eb53405e9ff0f3386';
 
   useEffect(() => {
 
     if (searchTerm !== '') {
-      getResults(`${location.pathname}?api_key=${apikey}=${searchTerm}`);
+      getResults(`${location.pathname}?api_key=${apikey}&q=${searchTerm}&num=11&gl=DO&hl=ES`);
     }
     
   }, [searchTerm, location.pathname]);
@@ -23,17 +23,17 @@ export const Results = () => {
     case '/search':
       return (
         <div className='flex flex-wrap justify between space-y-4 sm:px-56'>
-          {results?.organic_results?.map(({ link, title, snippets }, index)=>(
+          {results?.organic_results?.map(({ link, title, snippet }, index)=>(
             <div key={index} className='md:2/5 w-full'>
               <a href={link} target="_blank" rel="noreferrer">
-                <p className='text-sm'>
+                <p className='text-sm truncate ...'>
                   {link}
                 </p>
-                <p className='text-lg hover:underline dark:text-blue-300 text-blue-700'>
+                <p className='text-lg font-semibold hover:underline dark:text-blue-300 text-blue-700'>
                   {title}
                 </p>
                 <p>
-                  {snippets}
+                  {snippet}
                 </p>
               </a>
             </div>
@@ -45,7 +45,7 @@ export const Results = () => {
         <div className='flex flex-wrap justify-center items-center'>
           {results?.image_results?.map(({ link, title, original }, index)=>(
             <a href={link} target="_blank" key={index} rel="noreferrer" className="sm:p-3 p-5">
-            <img src={original} alt={title} loading="lazy" />
+            <img className="max-h-1/3" src={original} alt={title} loading="lazy" />
             <p className="sm:w-36 w-36 break-words text-sm mt-2">{title}</p>
           </a>
         ))}
@@ -54,7 +54,7 @@ export const Results = () => {
     case '/news':
       return (
         <div className="sm:px-56 flex flex-wrap justify-between items-center space-y-6">
-          {results?.news_results?.map(({title, source, snippet }, index) => (
+          {results?.news_results?.map(({title, source, snippet, url }, index) => (
             <div key={index} className="md:w-2/5 w-full ">
               
                 <p className="text-lg dark:text-blue-300 text-blue-700">
@@ -66,7 +66,10 @@ export const Results = () => {
               <div className="flex gap-4">
                 <p>
                   {source}
-                </p>              
+                </p>  
+                <p>
+                  {url}
+                </p>             
                 </div>
             </div>
           ))}

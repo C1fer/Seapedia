@@ -12,8 +12,8 @@ export const Navbar = ({ darkTheme, setDarkTheme }) => {
                 Seapedia
               </p>
             </Link>
-            <button type="button" onClick={() => setDarkTheme(!darkTheme)} className='text-xl dark:bg-slate-700 dark:text-slate-200 bg-white border-1 rounded-full px-2 py-1 hover:shadow-lg'>
-              {darkTheme ? 'Light🌞' : 'Dark🌛'}
+            <button type="button" onClick={() => setDarkTheme(!darkTheme)} className='text-xl dark:bg-slate-700 dark:text-slate-200 bg-white border-1 rounded px-2 py-1 hover:shadow-lg'>
+              {darkTheme ? '☀️' : '🌙'}
             </button>
         </div>
         <Links />
