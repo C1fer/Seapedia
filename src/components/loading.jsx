@@ -3,7 +3,7 @@ import * as Loader from 'react-loader-spinner'
 
 export const Loading = () => {
   return (
-    <div className='flex justify-center items-center'>
+    <div className='flex justify-center items-center mt-8'>
       <Loader.MutatingDots 
         height="100"
         width="100"

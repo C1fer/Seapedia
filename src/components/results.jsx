@@ -7,12 +7,12 @@ import { Loading } from './loading';
 export const Results = () => {
   const { results, isLoading, getResults, searchTerm } = useResultContext();
   const location = useLocation();
-  const apikey = '643e219ffa3387e9f86288bf&q';
+  const apikey = '643ea003b53405e9ff0f3385';
 
   useEffect(() => {
 
     if (searchTerm !== '') {
-      getResults(`${location.pathname}?api_key=${apikey}=${searchTerm}`);
+      getResults(`${location.pathname}?api_key=${apikey}&q=${searchTerm}`);
     }
     
   }, [searchTerm, location.pathname]);
@@ -23,17 +23,17 @@ export const Results = () => {
     case '/search':
       return (
         <div className='flex flex-wrap justify between space-y-4 sm:px-56'>
-          {results?.organic_results?.map(({ link, title, snippets }, index)=>(
-            <div key={index} className='md:2/5 w-full'>
+          {results?.organic_results?.map(({ link, title, snippet }, index)=>(
+            <div key={index} className='md:2/5 w-full m-1' >
               <a href={link} target="_blank" rel="noreferrer">
-                <p className='text-sm'>
-                  {link}
-                </p>
                 <p className='text-lg hover:underline dark:text-blue-300 text-blue-700'>
                   {title}
                 </p>
+                <p className='text-sm'>
+                  {link}
+                </p>
                 <p>
-                  {snippets}
+                  {snippet}
                 </p>
               </a>
             </div>
