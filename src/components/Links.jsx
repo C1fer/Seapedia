@@ -1,8 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-
-
 const links = [
   { url: '/search', text: '🔎 Páginas' },
   { url: '/news', text: '📰 Noticias' },
