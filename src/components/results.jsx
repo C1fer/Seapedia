@@ -45,8 +45,8 @@ export const Results = () => {
         <div className='flex flex-wrap justify-center items-center'>
           {results?.image_results?.map(({ link, title, original }, index)=>(
             <a href={link} target="_blank" key={index} rel="noreferrer" className="sm:p-3 p-5">
-            <img src={original} alt={title} loading="lazy" />
-            <p className="sm:w-36 w-36 break-words text-sm mt-2">{title}</p>
+            <img src={original} alt={title} loading="lazy" className="h-auto w-auto max-h-64 max-w-64" />
+            <p className="sm:w-36 w-64 break-words text-sm mt-2">{title}</p>
           </a>
         ))}
       </div>
@@ -74,9 +74,9 @@ export const Results = () => {
       );
     case '/videos':
       return (
-        <div className="flex flex-wrap ">
+        <div className="sm:px-56 flex flex-wrap justify-between items-center space-y-6">
           {results?.video_results?.map(({link, title, displayed_link}, index) => (
-            <div key={index} className="p-2">
+            <div key={index} className="md:2/5 w-full m-1">
               <a href={link} target="_blank" rel="noreferrer">
                 <p>{displayed_link}</p>
                 <p className='text-lg hover:underline dark:text-blue-300 text-blue-700'>{title}</p>
