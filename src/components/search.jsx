@@ -3,7 +3,7 @@ import { useResultContext } from '../context/ResultContextProvider';
 
 export const Search = () => {
   const { setSearchTerm } = useResultContext();
-  const [text, setText] = useState('Gatos');
+  const [text, setText] = useState('');
 
   useEffect(() => {
     const handleKeyPress = (event) => {

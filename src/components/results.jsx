@@ -7,13 +7,13 @@ import { Loading } from './loading';
 export const Results = () => {
   const { results, isLoading, getResults, searchTerm } = useResultContext();
   const location = useLocation();
-  const apikey = '643f0d9ffa3387e9f86288c3';
+  const apikey = '643f592719f0755d0a63abc1';
 
   useEffect(() => {
 
     if (searchTerm !== '') {
-      getResults(`${location.pathname}?api_key=${apikey}&q=${searchTerm}&num=11&gl=DO&hl=ES`);
-    }
+      getResults(`${location.pathname}?api_key=${apikey}&q=${searchTerm}&gl=DO&hl=ES`);
+    } 
     
   }, [searchTerm, location.pathname]);
 
