@@ -7,11 +7,12 @@ import { ResultContextProvider } from './context/ResultContextProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ResultContextProvider>
   <Router>
-    <App />
+    <ResultContextProvider>
+      <App />
+    </ResultContextProvider>
   </Router>
-  </ResultContextProvider>
+
 );
 
 
