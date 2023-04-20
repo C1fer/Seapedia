@@ -41,8 +41,6 @@ export const ResultContextProvider = ({ children }) => {
         const data = await response.json()
         setResults(data);
         setIsLoading(false);
-        console.log(data)
-        console.log(data.meta.gl)
         try {
             const {error} = await supabase
             .from('Searches')
